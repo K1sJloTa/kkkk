@@ -215,7 +215,6 @@ button:target {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     padding: 20px;
-    border-radius: 10px;
     position: absolute;
     top: 0;
     left: 600px;  /* Поместим блок справа от кнопок */
