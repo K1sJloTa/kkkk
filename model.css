@@ -1,0 +1,338 @@
+body {
+    background-image: url('phon.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    height: 1000px;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.6); 
+    background-position: bottom;
+    
+}
+html {
+    scroll-behavior: smooth;
+}
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1840px;
+    margin-right: 20px;
+    background: rgba(0, 0, 0, 0.6); 
+    z-index: -1; 
+}
+
+.div-1 {
+    height: 100px;
+    width: 100%;
+    
+}
+
+.logo-ip {
+    position: absolute;
+    width: 15%;
+    margin-left: 70px;
+
+}
+
+.animated-btn {
+    background-color: transparent;
+    border: 2px solid transparent; 
+    padding: 10px 20px;
+    font-size: 16px;
+    color: rgb(255, 255, 255); 
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    transition: all 0.5s ease;
+    margin-top: 35px;
+    margin-left: 1000px;
+    text-align: center;
+    font-family: arial black;
+}
+.animated-btn:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #c23eff; 
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.5s ease;
+}
+
+.animated-btn:hover:before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+.animated-btn:hover {
+    background-color: rgba(165, 10, 186, 0.085);
+}
+
+button:target {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #c23eff; 
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.5s ease;
+
+}
+.animated-btn[data-1="rules"]{
+    left: 110px;
+    bottom: 80px;
+}
+.animated-btn[data-1="contacts"]{
+    left: 228px;
+    bottom: 161px;
+}
+
+.square {
+    width: 400px; 
+    height: 645px; 
+    background-color: rgba(0, 0, 0, 0.3); 
+    position: relative;
+    top: 10px;
+    border-top: 5px solid #c23eff;
+    background: linear-gradient(to bottom, #29063e3e 5%, rgba(0, 0, 0, 0.392) 95%);
+}
+
+.btn {
+    width: 100%;
+    height: 50px;
+    padding: 15px;
+    background-color: #691b9a00;
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background: linear-gradient(to right, #9015d83e 5%, rgba(0, 0, 0, 0.392) 95%);
+}
+
+.btn:focus {
+    background: linear-gradient(to right, #9015d89e 5%, rgba(0, 0, 0, 0.392) 95%);
+}
+
+
+.select {
+    font-family: corbel;
+    font-size: 25px;
+    color: white;
+    margin-left: 30px;
+}
+
+.p-donat {
+    font-family: 'Minecraft', sans-serif;                                              
+    font-size: xx-large;
+}
+
+.descrip {
+    width: 800px; 
+    height: 600px; 
+    background-color: rgba(0, 0, 0, 0.3); 
+    position: relative;
+    left: 600px; 
+    top: -505px;
+    border-top: 5px solid #c23eff;
+    background: linear-gradient(to bottom, #29063e3e 5%, rgba(0, 0, 0, 0.392) 95%);
+}
+
+#menuButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 100%;  
+    top: 0;
+    background-color: #4c026f09;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0);
+    z-index: 1;
+    border-top: 5px solid #c23eff;
+}
+
+.dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: arial black;
+}
+
+.dropdown-content a:hover {
+    background-color: #27003939;
+}
+
+.time-btn {
+    width: 100%;
+    height: 50px;
+    padding: 15px;
+    background-color: #691b9a00;
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    background-color: #3b02551e;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.time-btn:hover {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.392) 5%, #9015d83e 95%);
+    font-family: arial black;
+}
+
+.time-btn:focus {
+    background: linear-gradient(to right, #9015d89e 5%, rgba(0, 0, 0, 0.392) 95%);
+    font-family: arial black;
+}
+
+.descrip {
+    background-color: aquamarine;
+}
+
+/* Описание для донатов */
+.description-box {
+    width: 700px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 600px;  /* Поместим блок справа от кнопок */
+    display: none; /* Скрыть блок по умолчанию */
+    z-index: 10;
+    border-top: 5px solid #c23eff;
+    height: 450px;
+}
+
+#donation-title {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#donation-info {
+    margin: 10px 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#donation-price {
+    font-size: 18px;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.buy {
+    width: 120px;
+    height: 50px;
+    padding: 15px;
+    background-color: #691b9a;
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: -100px;
+    margin-left: 560px;
+    
+}
+.cena {
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.buy:hover{
+    background-color: #c23eff;
+}
+
+.button-link{
+    text-decoration: none;
+}
+
+.name {
+    font-family: 'Minecraft';
+    font-size: 50px;
+    margin-top: -30px;
+}
+
+.dk-tk {
+    font-family: Arial black;
+    font-size: 50px;
+    margin-top: -20px;
+}
+
+.dk-tk1 {
+    font-family: Arial black;
+    font-size: 30px;
+}
+.square1 {
+    width: 1500px; 
+    height: 750px; 
+    background-color: rgba(0, 0, 0, 0.3); 
+    position: relative;
+    top: 10px;
+    border-top: 5px solid #c23eff;
+    background: linear-gradient(to bottom, #29063e3e 5%, rgba(0, 0, 0, 0.392) 95%);
+    background-size: cover;
+}
+
+.foot{
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background: #691b9a;
+    z-index: -1;
+    background-position: bottom;
+    width: 1500px;
+    height: 50%;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #393939;
+    
+}
+
+.p-foot {
+    text-align: center;
+    position: absolute;
+    margin-top: 250px;
+    margin-left: 50px;
+}
+
+.img-tt{
+    position: absolute;
+    z-index: 1;
+}
+
+.img-tt[data-tt="tt"]{
+    margin-top: 100px;
+    margin-left: 900px;
+}
+
+.img-tt[data-tt="ds"]{
+    margin-top: 100px;
+    margin-left: 700px;
+}
+.img-tt[data-tt="tg"]{
+    margin-top: 100px;
+    margin-left: 500px;
+}
