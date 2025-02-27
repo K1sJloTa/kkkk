@@ -4,31 +4,33 @@ const menus = document.querySelectorAll('.dropdown-content');
 
 // Добавляем обработчик события для каждой кнопки
 buttons.forEach((button, index) => {
-    button.addEventListener('click', () => {
-        // Скрываем все меню
-        menus.forEach(menu => {
-            menu.style.display = 'none';
-        });
-
-        // Показываем текущее меню
-        const menu = menus[index];
-        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+  button.addEventListener('click', (event) => {
+    // Останавливаем всплытие, чтобы не сработал глобальный клик
+    event.stopPropagation();
+    // Скрываем все меню
+    menus.forEach(menu => {
+      menu.style.display = 'none';
     });
+    // Показываем текущее меню (тоггл)
+    const menu = menus[index];
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+  });
 });
 
-// Закрытие меню, если кликнуть вне кнопки
+// Закрытие меню, если клик вне кнопок и выпадающих меню
 window.addEventListener('click', function(event) {
-    if (!event.target.matches('.btn')) {
-        menus.forEach(menu => {
-            menu.style.display = 'none';
-        });
-    }
+  // Если клик не произошел внутри элемента с классом .btn или .dropdown-content, скрываем меню
+  if (!event.target.closest('.btn') && !event.target.closest('.dropdown-content')) {
+    menus.forEach(menu => {
+      menu.style.display = 'none';
+    });
+  }
 });
 
-// Получаем все кнопки с вариантами (30 Дней, 90 Дней, Навсегда)
+// Получаем все кнопки с вариантами (например, 30 Дней, 90 Дней, Навсегда)
 const timeButtons = document.querySelectorAll('.time-btn');
 
-// Получаем div для отображения описания
+// Получаем div для отображения описания доната
 const donationTitle = document.getElementById('donation-title');
 const donationInfo = document.getElementById('donation-info');
 const donationPrice = document.getElementById('donation-price');
@@ -36,11 +38,12 @@ const descriptionBox = document.getElementById('donation-description');
 
 // Слушаем клики на кнопки с временем
 timeButtons.forEach(button => {
-    button.addEventListener('click', function(event) {
-        // Останавливаем событие от всплытия (чтобы не скрывать описание сразу)
-        event.stopPropagation();
+  button.addEventListener('click', function(event) {
+    // Останавливаем всплытие, чтобы не сработал глобальный клик
+    event.stopPropagation();
 
-        const donation = button.getAttribute('data-donation'); // Получаем тип доната
+    // Обновляем информацию в зависимости от выбора
+    const donation = button.getAttribute('data-donation'); // Получаем тип доната
         const duration = button.getAttribute('data-duration'); // Получаем длительность
 
         // Делаем div с описанием видимым
@@ -205,8 +208,29 @@ timeButtons.forEach(button => {
         
     });
 });
+// Глобальный обработчик клика для скрытия открытых элементов, если клик вне их
+window.addEventListener('click', function(event) {
+  // Скрываем выпадающие меню, если клик вне элементов с классом .btn или .dropdown-content
+  if (!event.target.closest('.btn') && !event.target.closest('.dropdown-content')) {
+    menus.forEach(menu => {
+      menu.style.display = 'none';
+    });
+  }
+  // Скрываем блок описания доната, если клик вне time-кнопок и блока описания
+  if (!event.target.closest('.time-btn') && !event.target.closest('#donation-description')) {
+    descriptionBox.style.display = 'none';
+  }
+});
 
-
+// Обработчик клика для плавного скролла (например, для якорных ссылок)
+document.querySelectorAll('.square a').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
 document.querySelectorAll('.square a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
